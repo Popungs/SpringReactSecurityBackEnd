@@ -33,12 +33,12 @@ public class ProductController {
 		return productService.getAllProducts();
 	}
 
-	@PostMapping
+	@PostMapping("/add")
 	public Product saveProduct(@RequestBody Product newProd) {
 		return productDao.save(newProd);
 	}
 
-	@PutMapping("/{id}")
+	@PutMapping("/edit/{id}")
 	public Product updateProduct(@PathVariable(value = "id") Integer id, @RequestBody Product productDetail) {
 		if (productService.findProduct(id) == null) {
 			return null;
